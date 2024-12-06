@@ -7,10 +7,12 @@ phases:
   build:
     commands:
       - cdk synth
-  deploy:  # Add a post_build phase for deployment
+      - cdk deploy --require-approval never
+  post_build:  # Add a post_build phase for deployment
     commands:
       - echo "Deployment phase started"
-      - cdk deploy --require-approval never  
+      # Optional: Add deployment-specific commands here
+      - cdk deploy --require-approval never  # Re-run deploy if needed for additional actions (or use other deployment methods)
 artifacts:
   files:
     - '**/*'
