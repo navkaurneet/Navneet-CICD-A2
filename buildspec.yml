@@ -11,8 +11,7 @@ phases:
   post_build:  # Add a post_build phase for deployment
     commands:
       - echo "Deployment phase started"
-      # Optional: Add deployment-specific commands here
-      - cdk deploy --require-approval never  # Re-run deploy if needed for additional actions (or use other deployment methods)
+      - cdk deploy --require-approval never 
 artifacts:
   files:
     - '**/*'
